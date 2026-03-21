@@ -1,15 +1,17 @@
-// const { act } = require("react");
-
-
-
-
+let allIssues=[];
 //fetch data
 const loadIssue=()=>{
     url="https://phi-lab-server.vercel.app/api/v1/lab/issues"
     fetch(url)
     .then(res=> res.json())
-     .then(data=>displayIssues(data.data) )
+     .then(data=>
+     {
+        allIssues=data.data;
+        displayIssues(data.data)
+     }
+      )
    };
+   
 
    //button toggling
 const btnAll=document.getElementById("btn-all")
@@ -28,12 +30,20 @@ const toggleBtnColor=(activeBtn)=>{
 
 btnAll.addEventListener('click',()=>{
     toggleBtnColor(btnAll);
+    displayIssues(allIssues);
+    document.getElementById("issue-count").innerText=`${allIssues.length} Issues`;
 });
 btnOpen.addEventListener('click',()=>{
     toggleBtnColor(btnOpen);
+    const openIssue=allIssues.filter(issue=>issue.status=='open')
+    displayIssues(openIssue);
+     document.getElementById("issue-count").innerText=`${openIssue.length} Issues`;
 });
 btnClosed.addEventListener('click',()=>{
     toggleBtnColor(btnClosed);
+     const ClosedIssue=allIssues.filter(issue=>issue.status=='closed')
+    displayIssues(ClosedIssue);
+     document.getElementById("issue-count").innerText=`${ClosedIssue.length} Issues`;
 });
 
 //1. get the container & empty
