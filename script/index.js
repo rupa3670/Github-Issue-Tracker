@@ -1,3 +1,8 @@
+// const { act } = require("react");
+
+
+
+
 //fetch data
 const loadIssue=()=>{
     url="https://phi-lab-server.vercel.app/api/v1/lab/issues"
@@ -5,6 +10,32 @@ const loadIssue=()=>{
     .then(res=> res.json())
      .then(data=>displayIssues(data.data) )
    };
+
+   //button toggling
+const btnAll=document.getElementById("btn-all")
+const btnOpen=document.getElementById("btn-open")
+const btnClosed=document.getElementById("btn-closed")
+
+const toggleBtnColor=(activeBtn)=>{
+    const buttons=[btnAll,btnClosed,btnOpen];
+    buttons.forEach(btn=>{
+        btn.classList.remove('btn-primary','text-white')
+        btn.classList.add('btn-outline', 'text-[#64748B]')
+    });
+    activeBtn.classList.add('btn-primary','text-white')
+        activeBtn.classList.remove('btn-outline', 'text-[#64748B]')
+};
+
+btnAll.addEventListener('click',()=>{
+    toggleBtnColor(btnAll);
+});
+btnOpen.addEventListener('click',()=>{
+    toggleBtnColor(btnOpen);
+});
+btnClosed.addEventListener('click',()=>{
+    toggleBtnColor(btnClosed);
+});
+
 //1. get the container & empty
 const displayIssues=(issues)=>{
     const issueContainer=document.getElementById("issues-container")
