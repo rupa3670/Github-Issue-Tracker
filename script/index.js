@@ -42,8 +42,9 @@ issues.forEach(issue=>{
     }
 
     if(issue.status=='open'){
-        
+
     }
+    
 
      //3. create element
      const dateRaw=issue.createdAt;
@@ -52,8 +53,9 @@ issues.forEach(issue=>{
     card.innerHTML=`
      <div class="bg-white p-4 rounded-[8px] border-t-4 ${borderColor} shadow-sm h-full flex flex-col justify-between  ">
                 <div class="flex justify-between">
-               <div  class="bg-[#CBFADB] text-green-700 rounded-full p-[2px] ">
-                 <i class="fa-solid fa-spinner"></i>
+               <div  class="${issue.status==='open' ? 'bg-[#CBFADB] text-green-700' : 
+               'bg-[#F0E2FF] text-[#A855F7]'} rounded-full p-[2px] ">
+                 <i  class="${issue.status==='open' ? 'fa-solid fa-spinner' : 'fa-regular fa-circle-check'}"></i>
                </div>
                 <h4 class="inline-block ${priorityText} ${priorityBg} py-1 px-6 rounded-full font-semibold">${issue.priority}</h4>
             </div>
