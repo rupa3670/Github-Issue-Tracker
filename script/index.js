@@ -12,18 +12,50 @@ const displayIssues=(issues)=>{
 
 //2. get into every lesson
 issues.forEach(issue=>{
+      let borderColor="";
+    if(issue.status==='open') 
+        {
+           borderColor= 'border-[#00A96E]' ;
+         } 
+
+    else
+    {
+       borderColor= 'border-[#A855F7]';
+    }
+
+    let priorityText=""
+    let priorityBg=""
+    if(issue.priority=="high")
+    {
+      priorityText='text-[#EF4444]' 
+      priorityBg= 'bg-[#FEECEC]'
+    }
+    else if(issue.priority=="medium")
+    {
+      priorityText='text-[#F59E0B]' 
+      priorityBg= 'bg-[#FFF6D1]'
+    }
+    else
+    {
+      priorityText='text-[#64748B]'
+      priorityBg= 'bg-[#EEEFF2]'
+    }
+
+    if(issue.status=='open'){
+        
+    }
 
      //3. create element
      const dateRaw=issue.createdAt;
      const displayDate=new Date(dateRaw).toLocaleDateString();
     const card=document.createElement("div")
     card.innerHTML=`
-     <div class="bg-white p-4 rounded-[8px] border-t-4 border-[#00A96E] shadow-sm h-full flex flex-col justify-between  ">
-            <div class="flex justify-between">
+     <div class="bg-white p-4 rounded-[8px] border-t-4 ${borderColor} shadow-sm h-full flex flex-col justify-between  ">
+                <div class="flex justify-between">
                <div  class="bg-[#CBFADB] text-green-700 rounded-full p-[2px] ">
                  <i class="fa-solid fa-spinner"></i>
                </div>
-                <h4 class="inline-block text-[#EF4444] bg-[#FEECEC] py-1 px-6 rounded-full font-semibold">${issue.priority}</h4>
+                <h4 class="inline-block ${priorityText} ${priorityBg} py-1 px-6 rounded-full font-semibold">${issue.priority}</h4>
             </div>
             
                 <div class="mt-[15px] ">
