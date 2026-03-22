@@ -21,16 +21,17 @@ const openModal = async (id)=>{
      document.getElementById("modal-title").innerText=issue.title;
 
      //label
-issues.forEach(issue => {
-        let borderColor = "";
+     const badgeStatus=document.getElementById("modal-status-badge")
         if (issue.status === 'open') {
-            borderColor = 'border-[#00A96E]';
+            badgeStatus.innerText="Opened";
+            badgeStatus.className = "bg-[#00A96E] text-white px-3 py-1 rounded-full font-bold text-xs";
         }
 
         else {
-            borderColor = 'border-[#A855F7]';
+            badgeStatus.innerText="Closed";
+            badgeStatus.className = "bg-[#A855F7] text-white px-3 py-1 rounded-full font-bold text-xs";
         }
-        })
+        
 
       //author
      document.getElementById("modal-author").innerText=issue.author;
@@ -40,6 +41,8 @@ issues.forEach(issue => {
      document.getElementById("modal-description").innerText=issue.description;
      //assignee
      document.getElementById("modal-assignee").innerText= issue.assignee || issue.author;
+
+
      //priority
      const priorityColor=document.getElementById("modal-priority");
      priorityColor.innerText=issue.priority.toUpperCase();
