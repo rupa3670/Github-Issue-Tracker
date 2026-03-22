@@ -190,7 +190,7 @@ const displayIssues = (issues) => {
             
                 <div class="mt-[15px] ">
                     <h3 class="font-semibold  mb-2">${issue.title}</h3>
-                <p class="text-[#64748B] text-sm line-clamp-2 mb-[10px]">${issue.description}</p>
+                <p class="text-[#64748B] text-sm mb-[10px]">${issue.description}</p>
                 </div>
             
             <div class="flex flex-wrap gap-2 justify-between mb-[15px]">
