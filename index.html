@@ -27,15 +27,15 @@
         </div>
     </header>
 
-    <section class=" mb-7 rounded-[8px]">
-        <div class="mx-[200px] flex gap-4 bg-white p-4 ">
+    <section class=" mb-7 ">
+        <div class="mx-[250px] flex gap-4 bg-white p-4 rounded-[8px] ">
             <button id="btn-all" class="btn btn-primary  text-white">All</button>
             <button id="btn-open" class="btn btn-outline text-[#64748B]">Open</button>
             <button id="btn-closed" class="btn btn-outline text-[#64748B]">Closed</button>
         </div>
     </section>
 
-    <section class="mx-[200px] bg-white flex justify-between mb-[24px] rounded-[8px]">
+    <section class="mx-[250px] bg-white flex justify-between mb-[24px] rounded-[8px]">
         <div class=" flex gap-3 p-4">
             <div> <img src="./images/Group 1.png" alt=""></div>
             <div>
@@ -55,12 +55,59 @@
         </div>
     </section>
 
-    <section id="issues-container" class="mx-[200px]  grid grid-cols-4  gap-4">
+    <section id="issues-container" class="mx-[250px]  grid grid-cols-4  gap-4">
        
        
     </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+<dialog id="issue_modal" class="modal">
+  <div class="modal-box">
+    <h2 id="modal-title" class="text-lg font-bold">Fix broken image uploads</h2>
+
+    <div class="flex gap-1.5 text-[#64748B]" >
+        <p>Opened</p>
+       
+        <p>. <span id="modal-author">Opened by Fahim Ahmed</span></p>
+        <p>.</p>
+        <p id="modal-date">22/02/2026</p>
+    </div>
+    <div id="modal-lebels" class="flex gap-2 mb-8 ">
+       <div class="flex gap-[2px]"> <span> <i class="fa-solid fa-bug"></i></span>
+        <p>BUG</p>
+    </div>
+       <div class="flex gap-[2px]">
+        <span><i class="fa-regular fa-life-ring"></i></span>
+         <p>Help Wanted</p>
+       </div>
+    </div>
+    <div>
+        <p class="py-4">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+    </div>
+    <div>
+        <div>
+            <p>Assignee:</p>
+            <p>Fahim Ahmed</p>
+        </div>
+        <div>
+            <p>Priority:</p>
+        </div>
+        <div>
+            <p>HIGH</p>
+        </div>
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 
     <script src="./script/index.js"></script>
 </body>
 
 </html>
+
