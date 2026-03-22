@@ -61,46 +61,45 @@
     </section>
 
     <!-- Open the modal using ID.showModal() method -->
-<button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+<button class="btn" onclick="issue_modal.showModal()"></button>
 <dialog id="issue_modal" class="modal">
   <div class="modal-box">
-    <h2 id="modal-title" class="text-lg font-bold">Fix broken image uploads</h2>
+    <h2 id="modal-title" class="text-2xl font-bold mb-3">Fix broken image uploads</h2>
 
-    <div class="flex gap-1.5 text-[#64748B]" >
-        <p>Opened</p>
+    <div class="flex items-center text-sm mb-4 gap-1.5 text-[#64748B]" >
+        <span id="status-badge" class="bg-green-500 text-white px-3 py-1 rounded-full font-bold text-xs">Opened</span>
        
-        <p>. <span id="modal-author">Opened by Fahim Ahmed</span></p>
-        <p>.</p>
+        <p  class="font-bold text-lg">. <span id="modal-author" class="font-medium">Opened by Fahim Ahmed</span></p>
+        <p class="font-bold text-lg">.</p>
         <p id="modal-date">22/02/2026</p>
     </div>
-    <div id="modal-lebels" class="flex gap-2 mb-8 ">
-       <div class="flex gap-[2px]"> <span> <i class="fa-solid fa-bug"></i></span>
+    <div id="modal-labels" class="flex gap-2 mb-6 ">
+       <div class="flex items-center px-3 py-1 border bg-[#FECACA] text-[#EF4444] gap-[2px] rounded-full">
+         <span> <i class="fa-solid fa-bug"></i></span>
         <p>BUG</p>
     </div>
-       <div class="flex gap-[2px]">
+       <div class="flex items-center px-3 py-1 border bg-[#FFF8DB] text-[#D97706] gap-[2px] rounded-full ">
         <span><i class="fa-regular fa-life-ring"></i></span>
          <p>Help Wanted</p>
        </div>
     </div>
     <div>
-        <p class="py-4">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+        <p id="modal-description" class="py-4 text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
     </div>
-    <div>
-        <div>
-            <p>Assignee:</p>
-            <p>Fahim Ahmed</p>
+    <div class=" flex justify-between bg-[#f1f1f2] p-4 rounded-[8px]">
+        <div >
+            <p id="modal-assignee"  class="text-sm">Assignee:</p>
+            <p class="font-semibold"></p>
         </div>
         <div>
-            <p>Priority:</p>
-        </div>
-        <div>
-            <p>HIGH</p>
+            <p  id="modal-priority" >Priority:</p>
+            <p class=" text-white rounded-full inline-block w-fit p-2"></p>
         </div>
     </div>
     <div class="modal-action">
       <form method="dialog">
         <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
+        <button class="btn btn-primary">Close</button>
       </form>
     </div>
   </div>
