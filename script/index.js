@@ -10,7 +10,15 @@ const loadIssue = () => {
         }
         )
 };
-
+const loadingSpinner=()=>{
+    const issueContainer= document.getElementById("issues-container");
+    issueContainer.innerHTML=`
+    <div class="col-span-full flex flex-col items-center justify-center py-20">
+    <span class="loading loading-spinner loading-sm"></span>
+    <p class="text-gray-500 mt-2">Loading...</p>
+</div>
+    `
+}
 // issue-modal
 
 const openModal = async (id)=>{
@@ -115,20 +123,32 @@ const toggleBtnColor = (activeBtn) => {
 
 btnAll.addEventListener('click', () => {
     toggleBtnColor(btnAll);
-    displayIssues(allIssues);
+    loadingSpinner();
+    setTimeout(() => {
+        displayIssues(allIssues);
     document.getElementById("issue-count").innerText = `${allIssues.length} Issues`;
+    },500);
+    
 });
 btnOpen.addEventListener('click', () => {
     toggleBtnColor(btnOpen);
-    const openIssue = allIssues.filter(issue => issue.status == 'open')
+    loadingSpinner();
+    setTimeout(() => {
+        const openIssue = allIssues.filter(issue => issue.status == 'open')
     displayIssues(openIssue);
     document.getElementById("issue-count").innerText = `${openIssue.length} Issues`;
+    },500);
+    
 });
 btnClosed.addEventListener('click', () => {
     toggleBtnColor(btnClosed);
-    const ClosedIssue = allIssues.filter(issue => issue.status == 'closed')
+    loadingSpinner();
+    setTimeout(() => {
+         const ClosedIssue = allIssues.filter(issue => issue.status == 'closed')
     displayIssues(ClosedIssue);
     document.getElementById("issue-count").innerText = `${ClosedIssue.length} Issues`;
+    },500);
+   
 });
 
 //1. get the container & empty
@@ -239,7 +259,7 @@ document.getElementById("btn-search").addEventListener("click",()=>{
     const input=document.getElementById("input-search");
     const searchText=input.value.trim().toLowerCase();
    
-
+  loadingSpinner();
     fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`)
     .then(res=> res.json())
     .then((data)=>{
@@ -247,7 +267,7 @@ document.getElementById("btn-search").addEventListener("click",()=>{
         const searchTexts=data.data;
        ;
 
-        displayIssues(searchTexts)
+        displayIssues(searchTexts);
 
     });
 })
