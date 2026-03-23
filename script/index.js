@@ -253,7 +253,7 @@ const displayIssues = (issues) => {
     
 
 };
-loadIssue();
+
 
 document.getElementById("btn-search").addEventListener("click",()=>{
     const input=document.getElementById("input-search");
@@ -271,3 +271,18 @@ document.getElementById("btn-search").addEventListener("click",()=>{
 
     });
 })
+
+
+document.getElementById("btn-login-submit").addEventListener("click",()=>{
+    const user= document.getElementById("login-user").value;
+    const pass=document.getElementById("login-pass").value;
+
+    if(user=== 'admin' && pass=== 'admin123'){
+        document.getElementById("login-section").classList.add("hidden");
+        document.getElementById("main-app").classList.remove("hidden");
+        loadIssue();
+    }
+     else{
+         alert("Invalid username or password")
+    }
+});

@@ -20,7 +20,34 @@
 </head>
 
 <body>
-    <header class="md:mb-7 mb-4 shadow-sm md:bg-white">
+    <section id="login-section" class="min-h-screen flex items-center justify-center bg-gray-50">
+        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <legend class="fieldset-legend"></legend>
+  <div class="flex flex-col items-center mb-6 text-center">
+    <div  class="">
+        <img src="./images/github-logo.png" alt="">
+    </div>
+    <h1 class="text-3xl font-bold text-[#1F2937] mb-1">GitHub Issues Tracker</h1>
+    <p class="text-gray-500 text-sm font-semibold">Sing in to manage your issues</p>
+  </div>
+  <div class="w-full">
+    <label class="label font-bold ">Username</label>
+  <input id="login-user" type="name" class="input" placeholder="Enter Username" />
+  <p class="text-[10px] text-purple-600 text-sm font-medium mt-1">Default: admin</p>
+
+  <label class="label font-bold">Password</label>
+  <input id="login-pass" type="password" class="input" placeholder="Enter Password" />
+  <p class="text-[10px] text-purple-600 text-sm font-medium mt-1">
+    Default: admin123
+  </p>
+
+  <button id="btn-login-submit" class="btn btn-primary mt-4">Sign in</button>
+  </div>
+</fieldset>
+    </section>
+  <div id="main-app" class="hidden">
+
+  <header class="md:mb-7 mb-4 shadow-sm md:bg-white">
         <section class=" md:flex justify-between">
             <div class=" bg-white p-4">
                 <h2 class="font-medium  text-center    text-xl md:text-left md:text-2xl 
@@ -124,6 +151,12 @@
             </div>
         </div>
     </dialog>
+
+
+  </div>
+
+
+  
 
     <script src="./script/index.js"></script>
 </body>
