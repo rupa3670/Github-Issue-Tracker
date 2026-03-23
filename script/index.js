@@ -234,3 +234,20 @@ const displayIssues = (issues) => {
 
 };
 loadIssue();
+
+document.getElementById("btn-search").addEventListener("click",()=>{
+    const input=document.getElementById("input-search");
+    const searchText=input.value.trim().toLowerCase();
+   
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`)
+    .then(res=> res.json())
+    .then((data)=>{
+
+        const searchTexts=data.data;
+       ;
+
+        displayIssues(searchTexts)
+
+    });
+})
