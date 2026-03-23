@@ -20,16 +20,30 @@
 </head>
 
 <body>
-    <header class="md:mb-7 mb-4 shadow-sm">
-        <div class="bg-white p-4">
-            <h2 class="font-medium  text-center    text-xl md:text-left md:text-2xl 
+    <header class="md:mb-7 mb-4 shadow-sm ">
+        <section class=" md:flex justify-between">
+            <div class="bg-white p-4">
+                <h2 class="font-medium  text-center    text-xl md:text-left md:text-2xl 
             md:font-semibold container mx-auto "><span><i class="fa-brands fa-github"></i></span> GitHub Issues Tracker
-            </h2>
-        </div>
+                </h2>
+            </div>
+            <div class="p-3">
+                <div class="search justify-center items-center flex gap-2">
+                    <div class="">
+                        <label class="input validator join-item">
+                            <i class="fa-brands fa-sistrix"></i>
+                            <input id="input-search" type="text" placeholder="Search Issues..." required />
+                        </label>
+                        <div class="validator-hint hidden">Enter valid Text</div>
+                    </div>
+                    <button id="btn-search" class="btn btn-primary join-item">Search</button>
+                </div>
+            </div>
+        </section>
     </header>
 
     <section class="md:mb-7 mb-4 ">
-        <div class="md:mx-[250px] flex flex-wrap gap-4 bg-white p-4 rounded-[8px] justify-center 
+        <div class="mx-6 md:mx-[250px] flex flex-wrap gap-4 bg-white p-4 rounded-[8px] justify-center 
         md:justify-start">
             <button id="btn-all" class="btn btn-primary  text-white">All</button>
             <button id="btn-open" class="btn btn-outline text-[#64748B]">Open</button>
@@ -37,7 +51,8 @@
         </div>
     </section>
 
-    <section class=" px-4 lg:mx-[250px] bg-white flex flex-col md:flex-row  justify-between mb-[24px] rounded-[8px] gap:1.5">
+    <section
+        class=" mx-6 lg:mx-[250px] bg-white flex flex-col md:flex-row  justify-between mb-[24px] rounded-[8px] gap:1.5">
         <div class=" flex gap-3  p-4">
             <div> <img src="./images/Group 1.png" alt="" class="w-12"></div>
             <div>
@@ -57,58 +72,60 @@
         </div>
     </section>
 
-    <section id="issues-container" class=" lg:mx-[250px]  grid grid-col-1 md:grid-cols-4  gap-4">
-       
-       
+    <section id="issues-container" class="mx-6 lg:mx-[250px]  grid grid-col-1 md:grid-cols-4  gap-4">
+
+
     </section>
 
     <!-- Open the modal using ID.showModal() method -->
-<button class="btn" onclick="issue_modal.showModal()"></button>
-<dialog id="issue_modal" class="modal">
-  <div class="modal-box">
-    <h2 id="modal-title" class="text-2xl font-bold mb-3">Fix broken image uploads</h2>
+    <button class="btn" onclick="issue_modal.showModal()"></button>
+    <dialog id="issue_modal" class="modal">
+        <div class="modal-box">
+            <h2 id="modal-title" class="text-2xl font-bold mb-3">Fix broken image uploads</h2>
 
-    <div class="flex items-center text-sm mb-4 gap-1.5 text-[#64748B]" >
-        <span id="modal-status-badge" class="bg-green-500 text-white px-3 py-1 rounded-full font-bold text-xs">Opened</span>
-       
-        <p  class="font-bold text-lg">. <span id="modal-author" class="font-medium">Opened by Fahim Ahmed</span></p>
-        <p class="font-bold text-lg">.</p>
-        <p id="modal-date">22/02/2026</p>
-    </div>
-    <div id="modal-labels" class="flex gap-2 mb-6 ">
-       <div class="flex items-center px-3 py-1 border bg-[#FECACA] text-[#EF4444] gap-[2px] rounded-full">
-         <span> <i class="fa-solid fa-bug"></i></span>
-        <p>BUG</p>
-    </div>
-       <div class="flex items-center px-3 py-1 border bg-[#FFF8DB] text-[#D97706] gap-[2px] rounded-full ">
-        <span><i class="fa-regular fa-life-ring"></i></span>
-         <p>Help Wanted</p>
-       </div>
-    </div>
-    <div>
-        <p id="modal-description" class="py-4 text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
-    </div>
-    <div class=" flex justify-between bg-[#f1f1f2] p-4 rounded-[8px] ">
-        <div class="flex flex-col gap-1" >
-            <p   class=" font-semibold">Assignee:</p>
-            <p id="modal-assignee" class=""></p>
+            <div class="flex items-center text-sm mb-4 gap-1.5 text-[#64748B]">
+                <span id="modal-status-badge"
+                    class="bg-green-500 text-white px-3 py-1 rounded-full font-bold text-xs">Opened</span>
+
+                <p class="font-bold text-lg">. <span id="modal-author" class="font-medium">Opened by Fahim Ahmed</span>
+                </p>
+                <p class="font-bold text-lg">.</p>
+                <p id="modal-date">22/02/2026</p>
+            </div>
+            <div id="modal-labels" class="flex gap-2 mb-6 ">
+                <div class="flex items-center px-3 py-1 border bg-[#FECACA] text-[#EF4444] gap-[2px] rounded-full">
+                    <span> <i class="fa-solid fa-bug"></i></span>
+                    <p>BUG</p>
+                </div>
+                <div class="flex items-center px-3 py-1 border bg-[#FFF8DB] text-[#D97706] gap-[2px] rounded-full ">
+                    <span><i class="fa-regular fa-life-ring"></i></span>
+                    <p>Help Wanted</p>
+                </div>
+            </div>
+            <div>
+                <p id="modal-description" class="py-4 text-[#64748B]">The navigation menu doesn't collapse properly on
+                    mobile devices. Need to fix the responsive behavior.</p>
+            </div>
+            <div class=" flex justify-between bg-[#f1f1f2] p-4 rounded-[8px] ">
+                <div class="flex flex-col gap-1">
+                    <p class=" font-semibold">Assignee:</p>
+                    <p id="modal-assignee" class=""></p>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="font-semibold">Priority:</p>
+                    <p id="modal-priority" class=" text-white rounded-full inline-block w-fit p-2"></p>
+                </div>
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn btn-primary">Close</button>
+                </form>
+            </div>
         </div>
-        <div class="flex flex-col gap-2">
-            <p class="font-semibold"   >Priority:</p>
-            <p id="modal-priority" class=" text-white rounded-full inline-block w-fit p-2"></p>
-        </div>
-    </div>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn btn-primary">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+    </dialog>
 
     <script src="./script/index.js"></script>
 </body>
 
 </html>
-
